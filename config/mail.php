@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hola@distribuidoranecochea.com.ar'),
-        'name' => env('MAIL_FROM_NAME', 'Distribuidora Necochea'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@ozymandiasgamerush.com.ar'),
+        'name' => env('MAIL_FROM_NAME', 'Grupo ozymandias GameRush'),
     ],
 
     /*
