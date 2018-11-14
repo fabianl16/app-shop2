@@ -39,6 +39,7 @@
                             <input type="number" class="form-control" name="price" value="{{ old('price') }}">
                         </div>
                     </div>
+                    
                 </div>
 
                 <div class="row">

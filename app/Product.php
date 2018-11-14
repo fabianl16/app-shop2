@@ -18,6 +18,11 @@ class Product extends Model
     	return $this->hasMany(ProductImage::class);
     }
 
+    public function stock()
+    {
+        return $this->belongsTo(Stock::class);
+    }
+
     public function getFeaturedImageUrlAttribute()
     {
         $featuredImage = $this->images()->where('featured', true)->first();

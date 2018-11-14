@@ -34,12 +34,12 @@ class ProductController extends Controller
             'description.max' => 'La descripción corta solo admite hasta 200 caracteres.',
             'price.required' => 'Es obligatorio definir un precio para el producto.',
             'price.numeric' => 'Ingrese un precio válido.',
-            'price.min' => 'No se admiten valores negativos.'
+            'price.min' => 'No se admiten valores negativos y un videojuego no puede valer menos d 200.'
         ];
         $rules = [
             'name' => 'required|min:3',
             'description' => 'required|max:200',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric|min:200'
         ];
         $this->validate($request, $rules, $messages);
 
@@ -71,10 +71,11 @@ class ProductController extends Controller
             'description.max' => 'La descripción corta solo admite hasta 200 caracteres.',
             'price.required' => 'Es obligatorio definir un precio para el producto.',
             'price.numeric' => 'Ingrese un precio válido.',
+            'price.max' => 'Un videojuego no puede costar mas de 2000',
             'price.min' => 'No se admiten valores negativos.'
         ];
         $rules = [
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|max:2000',
             'description' => 'required|max:200',
             'price' => 'required|numeric|min:0'
         ];
@@ -100,6 +101,15 @@ class ProductController extends Controller
         $product->delete(); // DELETE
 
         return back();
+    }
+
+    public function stock(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product->stock = $request->input('stock');
+        $product->save();
+        return redirect('/admin/products');
+
     }
 
 }
