@@ -18,23 +18,16 @@
                 </div>
             @endif
 
-            <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                <li class="active">
-                    <a href="#dashboard" role="tab" data-toggle="tab">
-                        <i class="material-icons">dashboard</i>
-                        Carrito de compras
-                    </a>
-                </li>
-                <li>
-                    <a href="#tasks" role="tab" data-toggle="tab">
-                        <i class="material-icons">list</i>
-                        Pedidos realizados
-                    </a>
-                </li>
-            </ul>
+             @if (session('notification_error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('notification_error') }}
+                </div>
+            @endif
+
+        
         
             <hr>
-            <p>Tu carrito de compras presenta {{ auth()->user()->cart->details->count() }} productos.</p>
+            <h3>Tu carrito de compras presenta {{ auth()->user()->cart->details->count() }} productos.</h3>
 
             <table class="table">
                 <thead>

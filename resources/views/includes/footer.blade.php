@@ -1,31 +1,49 @@
 <footer class="footer">
     <div class="container">
         <nav class="pull-left">
-            {{--<ul>--}}
-                {{--<li>--}}
-                    {{--<a href="https://programacionymas.com">--}}
-                        {{--¿Necesitas ayuda con un proyecto?--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a href="https://programacionymas.com/asesoria">--}}
-                       {{--Asesoría personalizada--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a href="https://programacionymas.com/blog">--}}
-                       {{--Blog--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a href="https://series.programacionymas.com">--}}
-                        {{--Tutoriales sobre desarrollo web y móvil--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            {{--</ul>--}}
+            <ul>
+                <li>
+                    <a href="http://www.creative-tim.com">
+                        Ozymandias Software
+                    </a>
+                </li>
+                <li>
+                    <a href="http://presentation.creative-tim.com">
+                       Acerca de Nosotros
+                    </a>
+                </li>
+                
+                
+            </ul>
         </nav>
         <div class="copyright pull-right">
-            &copy; 2017.
+            &copy; UABCS <i class="material-icons">toys</i> Powered by Ozymandias Software
         </div>
     </div>
 </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

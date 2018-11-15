@@ -12,11 +12,30 @@ class CartController extends Controller
 {
     public function update()
     {
+
+
+
+
+
     	$client = auth()->user(); 
     	$cart = $client->cart;
-    	$cart->status = 'Pending';
+    	
+        if($cart->details->count()<1){
+            $notification_error = 'Aun no has agregado productos';
+        return back()->with(compact('notification_error'));
+        }
+
+
+        $cart->status = 'Pending';
     	$cart->order_date = Carbon::now();
     	$cart->save(); // UPDATE
+
+        foreach ($cart->details as $detail) {
+            $product = $detail->product;
+            $product->stock = $product->stock-$detail->quantity;
+            $product->save(); 
+        }
+
 
     	$admins = User::where('admin', true)->get();
     	Mail::to($admins)->send(new NewOrder($client, $cart));

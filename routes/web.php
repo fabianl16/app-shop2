@@ -11,6 +11,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/categories/{category}', 'CategoryController@show');
 
+Route::get('/mispedidos', 'ProductController@order');
+
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 
@@ -23,7 +25,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')
 	Route::post('/products', 'ProductController@store'); // registrar
 	Route::get('/products/{id}/edit', 'ProductController@edit'); // formulario edición
 	Route::post('/products/{id}/edit', 'ProductController@update');
-	Route::post('/products/{id}/stock', 'ProductController@stock'); // actualizar
+	Route::get('/products/stock', 'ProductController@stock'); // actualizar
 	Route::delete('/products/{id}', 'ProductController@destroy'); // form eliminar
 
 	Route::get('/products/{id}/images', 'ImageController@index'); // listado

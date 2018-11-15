@@ -9,6 +9,7 @@ use App\ProductImage;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Cart;
 
 class ProductController extends Controller
 {
@@ -26,6 +27,8 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
+
         // validar
         $messages = [
             'name.required' => 'Es necesario ingresar un nombre para el producto.',
@@ -50,6 +53,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->long_description = $request->input('long_description');
         $product->category_id = $request->category_id == 0 ? null : $request->category_id;
+        $product->stock = $request->stock;
         $product->save(); // INSERT
 
         return redirect('/admin/products');
@@ -103,13 +107,12 @@ class ProductController extends Controller
         return back();
     }
 
-    public function stock(Request $request, $id)
-    {
-        $product = Product::find($id);
-        $product->stock = $request->input('stock');
-        $product->save();
-        return redirect('/admin/products');
+   public function stock()
+   {
+    $products = Product::paginate(9);
+    return view('admin.products.stock', compact('products'));
+   }
 
-    }
+   
 
 }

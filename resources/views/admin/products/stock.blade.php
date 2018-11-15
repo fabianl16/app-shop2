@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Listado de productos')
+
 @section('body-class', 'product-page')
 
 @section('content')
@@ -8,36 +10,53 @@
 
 <div class="main main-raised">
     <div class="container">
+        <div class="section text-center">
+            <h2 class="title">Inventario</h2>
 
-        <div class="section">
-            <h2 class="title text-center">Ingresa cantidad de producto</h2>
+            <div class="team">
+                <div class="row">
+                    
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="col-md-2 text-center">Nombre</th>
+                            
+                                <th class="text-center">Cantidad</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($products as $product)
+                            <tr>
+                                <td class="text-center">{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td class="text-right"> {{ $product->stock }}</td>
+                                <td class="td-actions text-right">
+                                    
+                        
+                                        
+                                        <a href="{{ url('/products/'.$product->id) }}" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs" target="_blank">
+                                            <i class="fa fa-info"></i>
+                                        </a>
+                                        <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        
+                                        
+                                        
+                                                                        
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    {{ $products->links() }}
                 </div>
-            @endif
-
-            <form method="post" action="{{ url('/admin/products/'.$product->id.'/stock') }}">
-                {{ csrf_field() }}
-                <div class="col-sm-6">
-                        <div class="form-group label-floating">
-                        <label class="control-label">Cantidad de productp</label>
-                        <input type="number" step="0" class="form-control" name="stock" value="{{ old('stock', $product->stock) }}">
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <button class="btn btn-primary">Guardar cambios</button>
-                <a href="{{ url('/admin/products') }}" class="btn btn-default">Cancelar</a>
-            </form>
+            </div>
         </div>
-
     </div>
 
 </div>

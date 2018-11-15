@@ -50,6 +50,9 @@
                                 <li>
                                     <a href="{{ url('/home') }}">Carrito de compras</a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/mispedidos') }}">Pedidos realizados</a>
+                                </li>
                                 @if (auth()->user()->admin)
                                 <li>
                                     <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
@@ -58,7 +61,7 @@
                                     <a href="{{ url('/admin/products') }}">Gestionar productos</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/admin/stocks') }}">Inventario</a>
+                                    <a href="{{ url('/admin/products/stock') }}">Inventario</a>
                                 </li>
                                 @endif
                                 <li>
