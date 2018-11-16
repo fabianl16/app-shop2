@@ -47,12 +47,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/home') }}">Carrito de compras</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/mispedidos') }}">Pedidos realizados</a>
-                                </li>
+                                
                                 @if (auth()->user()->admin)
                                 <li>
                                     <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
@@ -63,7 +58,15 @@
                                 <li>
                                     <a href="{{ url('/admin/products/stock') }}">Inventario</a>
                                 </li>
+                                @else
+                                <li>
+                                    <a href="{{ url('/home') }}">Carrito de compras</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/mispedidos') }}">Pedidos realizados</a>
+                                </li>
                                 @endif
+
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

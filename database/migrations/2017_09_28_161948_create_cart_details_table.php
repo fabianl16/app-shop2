@@ -15,6 +15,7 @@ class CreateCartDetailsTable extends Migration
     {
         Schema::create('cart_details', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('price')->nullable();
 
             // FK header
             $table->integer('cart_id')->unsigned();

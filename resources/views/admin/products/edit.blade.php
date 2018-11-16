@@ -39,6 +39,13 @@
                         <input type="number" step="0.01" class="form-control" name="price" value="{{ old('price', $product->price) }}">
                         </div>
                     </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group label-floating">
+                        <label class="control-label">Cantidad disponible para vender</label>
+                        <input type="number"  class="form-control" name="stock" value="{{ old('stock', $product->stock) }}">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">

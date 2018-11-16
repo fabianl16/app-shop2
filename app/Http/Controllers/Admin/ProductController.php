@@ -76,12 +76,16 @@ class ProductController extends Controller
             'price.required' => 'Es obligatorio definir un precio para el producto.',
             'price.numeric' => 'Ingrese un precio válido.',
             'price.max' => 'Un videojuego no puede costar mas de 2000',
-            'price.min' => 'No se admiten valores negativos.'
+            'price.min' => 'No se admiten valores negativos.',
+            'stock.max' => 'El maximo de productos a vender debe ser 2000 unidades',
+            'stock.min' => 'El minimo de productos disponibles para vender es 10'
         ];
         $rules = [
             'name' => 'required|min:3|max:2000',
             'description' => 'required|max:200',
-            'price' => 'required|numeric|min:0'
+            
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|numeric|max:2000|min:10'
         ];
         $this->validate($request, $rules, $messages);
         // dd($request->all());
@@ -89,6 +93,7 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
+         $product->stock = $request->input('stock');
         $product->long_description = $request->input('long_description');
         $product->category_id = $request->category_id == 0 ? null : $request->category_id;
         $product->save(); // UPDATE

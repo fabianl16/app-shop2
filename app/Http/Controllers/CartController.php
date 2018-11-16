@@ -30,11 +30,7 @@ class CartController extends Controller
     	$cart->order_date = Carbon::now();
     	$cart->save(); // UPDATE
 
-        foreach ($cart->details as $detail) {
-            $product = $detail->product;
-            $product->stock = $product->stock-$detail->quantity;
-            $product->save(); 
-        }
+        
 
 
     	$admins = User::where('admin', true)->get();

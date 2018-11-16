@@ -11,12 +11,23 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/categories/{category}', 'CategoryController@show');
 
+
+
+
+
+
+
+
+
+Route::middleware(['auth'])->group(function () {    //Rutas cliente
 Route::get('/mispedidos', 'ProductController@order');
-
 Route::post('/cart', 'CartDetailController@store');
-Route::delete('/cart', 'CartDetailController@destroy');
-
 Route::post('/order', 'CartController@update');
+Route::delete('/cart', 'CartDetailController@destroy');    
+});
+
+
+
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')
 ->group(function () {

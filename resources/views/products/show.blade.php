@@ -25,6 +25,11 @@
                             {{ session('notification') }}
                         </div>
                     @endif
+                    @if (session('notification_error'))
+                        <div class="alert alert-danger">
+                            {{ session('notification_error') }}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="description text-center">
@@ -33,6 +38,9 @@
             </div>
 
             <div class="text-center">
+                @if(auth()->user()->admin)
+
+                @else
                 @if (auth()->check())
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                         <i class="material-icons">add</i> Añadir al carrito de compras
@@ -41,6 +49,7 @@
                     <a href="{{ url('/login?redirect_to='.url()->current()) }}" class="btn btn-primary btn-round">
                         <i class="material-icons">add</i> Añadir al carrito de compras
                     </a>
+                @endif
                 @endif
             </div> 
 
@@ -81,7 +90,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Seleccione la cantidad que desea agregar</h4>
+        <h2 id="myModalLabel">Seleccione la cantidad que desea agregar</h2>
       </div>
       <form method="post" action="{{ url('/cart') }}">
         {{ csrf_field() }}
@@ -89,10 +98,15 @@
         <div class="modal-body">
             <input type="number" name="quantity" value="1" class="form-control">
           </div>
-          <div class="modal-footer">
+        <input type="hidden" name="price" value="{{ $product->price}}" class="form-control">
+        <div class="modal-footer">
             <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-info btn-simple">Añadir al carrito</button>
           </div>
+          </div>
+
+          
+
       </form>
     </div>
   </div>
