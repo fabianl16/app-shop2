@@ -12,7 +12,8 @@
                 <div class="profile">
                     <div class="avatar">
                         <div class="name">
-                        <h3 class="title">Algo salio mal...</h3>
+                        <h3 class="title">Pago realizado</h3>
+                        <a class="title" href="{{url('/')}}">Volver a comprar</a>
                     </div>
 
 
