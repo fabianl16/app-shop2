@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
 
             // consola
-            $table->integer('console_id')->unsigned()->nullable();
+            $table->unsignedInteger('console_id')->nullable();
             $table->foreign('console_id')->references('id')->on('consoles');
 
             $table->timestamps();
