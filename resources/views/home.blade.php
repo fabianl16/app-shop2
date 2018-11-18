@@ -24,6 +24,12 @@
                 </div>
             @endif
 
+            @if (session('notification_stock'))
+                <div class="alert alert-danger text-center">
+                    {{ session('notification_stock') }}
+                </div>
+            @endif
+
         
         
             <hr>
@@ -74,10 +80,10 @@
             <p><strong>Importe a pagar:</strong> {{ auth()->user()->cart->total }}</p>
 
             <div class="text-center">
-                <form method="post" action="{{ url('/order') }}">
+                <form method="post" action="{{ url('/paypal') }}">
                     {{ csrf_field() }}
-                    
-                    <button class="btn btn-primary btn-round">
+                <input type="hidden" name="total" value="{{ auth()->user()->cart->total}}">
+                    <button type="submit" class="btn btn-primary btn-round">
                         <i class="material-icons">done</i> Realizar pedido
                     </button>
                 </form>

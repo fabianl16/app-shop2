@@ -11,6 +11,10 @@ class Product extends Model
     {
     	return $this->belongsTo(Category::class);
     }
+    public function console()
+    {
+        return $this->belongsTo(Console::class);
+    }
 
     // $product->images
     public function images()
@@ -41,6 +45,13 @@ class Product extends Model
     {
         if ($this->category)
             return $this->category->name;
+
+        return 'General';
+    }
+    public function getConsoleNameAttribute()
+    {
+        if ($this->console)
+            return $this->console->name;
 
         return 'General';
     }

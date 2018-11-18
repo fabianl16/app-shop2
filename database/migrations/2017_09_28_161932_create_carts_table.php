@@ -18,6 +18,7 @@ class CreateCartsTable extends Migration
 
             $table->date('order_date')->nullable();
             $table->date('arrived_date')->nullable();
+            $table->string('paymentId')->nullable();
             $table->string('status'); // Active, Pending, Approved, Cancelled, Finished
 
             // user_id (FK) customer

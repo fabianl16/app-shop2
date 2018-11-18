@@ -28,15 +28,16 @@ class CartDetailController extends Controller
 
         }
 
+        if($cartDetail->quantity > $cartDetail->product->stock){
+             $notification_stock = 'Stock insuficiente';
+        return back()->with(compact('notification_stock'));
+        }
+
 
         $cartDetail->price = $request->price;
     	$cartDetail->save();
 
-        foreach ($cart->details as $detail) {
-            $product = $detail->product;
-            $product->stock = $product->stock-$detail->quantity;
-            $product->save(); 
-        }
+        
 
 		$notification = 'El producto se ha cargado a tu carrito de compras exitosamente!';
     	return back()->with(compact('notification'));

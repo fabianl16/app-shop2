@@ -24,6 +24,7 @@
                                 <th class="col-md-2 text-center">Nombre</th>
                                 <th class="col-md-5 text-center">Descripción</th>
                                 <th class="text-center">Categoría</th>
+                                <th class="text-center">Consola</th>
                                 <th class="text-right">Precio</th>
                                 <th class="text-center">Cantidad</th>
                                 <th class="text-right">Opciones</th>
@@ -36,6 +37,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->category_name }}</td>
+                                <td>{{ $product->console_name}}</td>
                                 <td class="text-right">$ {{ $product->price }}</td>
                                 <td class="text-right"> {{ $product->stock }}</td>
                                 <td class="td-actions text-right">

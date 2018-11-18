@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Cart;
+use App\Console;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get();
-    	return view('admin.products.create')->with(compact('categories')); // formulario de registro
+        $consoles = Console::orderBy('name')->get();
+    	return view('admin.products.create')->with(compact('categories', 'consoles')); // formulario de registro
     }
 
     public function store(Request $request)
@@ -53,6 +55,19 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->long_description = $request->input('long_description');
         $product->category_id = $request->category_id == 0 ? null : $request->category_id;
+        if($product->category_id== 0){
+            $notification = 'Debes agregar el producto a una categoria para poder crearlo';
+        return back()->with(compact('notification'));
+
+        }
+        $product->console_id = $request->console_id == 0 ? null : $request->console_id;
+
+        if($product->console_id>= 1){
+            $notification_error = 'Debes agregar el producto a una consola para poder crearlo';
+        return back()->with(compact('notification_error'));
+
+        }
+
         $product->stock = $request->stock;
         $product->save(); // INSERT
 
@@ -62,8 +77,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $categories = Category::orderBy('name')->get();
+        $consoles = Console::orderBy('name')->get();
         $product = Product::find($id);
-        return view('admin.products.edit')->with(compact('product', 'categories')); // form de edición
+        return view('admin.products.edit')->with(compact('product', 'categories', 'consoles')); // form de edición
     }
 
     public function update(Request $request, $id)
@@ -96,6 +112,23 @@ class ProductController extends Controller
          $product->stock = $request->input('stock');
         $product->long_description = $request->input('long_description');
         $product->category_id = $request->category_id == 0 ? null : $request->category_id;
+        if($product->category_id== 0){
+            $notification = 'El producto debe estar asociado a una categoria para actualizar';
+        return back()->with(compact('notification'));
+
+        }
+
+         $product->console_id = $request->console_id == 0 ? null : $request->console_id;
+
+
+
+        if($product->console_id== 0){
+            $notification_error = 'El producto debe estar asociado a una consola para actualizar';
+        return back()->with(compact('notification_error'));
+
+        }
+
+
         $product->save(); // UPDATE
 
         return redirect('/admin/products');

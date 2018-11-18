@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 use App\Product;
 use App\Category;
 use App\ProductImage;
-
+use App\Console;
 class ProductsTableSeeder extends Seeder
 {
     /**
@@ -20,6 +20,15 @@ class ProductsTableSeeder extends Seeder
         factory(ProductImage::class, 200)->create();*/
 
         $categories = factory(Category::class, 4)->create();
+        $consoles = factory(Console::class, 4)->create();
+
+        $consoles->each(function ($console) {
+            $products = factory(Product::class, 5)->make();
+            $console->products()->saveMany($products);
+
+        });
+
+
         $categories->each(function ($category) {
             $products = factory(Product::class, 5)->make();
             $category->products()->saveMany($products);

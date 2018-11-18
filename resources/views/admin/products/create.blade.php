@@ -25,6 +25,17 @@
             <form method="post" action="{{ url('/admin/products') }}">
                 {{ csrf_field() }}
 
+                @if (session('notification_error'))
+                        <div class="alert alert-danger">
+                            {{ session('notification_error') }}
+                        </div>
+                    @endif
+                    @if (session('notification'))
+                        <div class="alert alert-danger">
+                            {{ session('notification') }}
+                        </div>
+                    @endif
+
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
@@ -68,6 +79,21 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Consola del producto</label>
+                            <select class="form-control" name="console_id">
+                                <option value="0">Todas</option>
+                                @foreach ($consoles as $console)
+                                <option value="{{ $console->id }}">{{ $console->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
 

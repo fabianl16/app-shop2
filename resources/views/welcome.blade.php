@@ -124,7 +124,7 @@
         {{--</div>--}}
 
         <div class="section text-center">
-            <h2 class="title">Nuestros productos</h2>
+            <h2 class="title">Nuestros productos por categoria:</h2>
 
             <form class="form-inline" method="get" action="{{ url('/search') }}">
                 <input type="text" placeholder="¿Qué producto buscas?" class="form-control" name="query" id="search">
@@ -143,6 +143,25 @@
                                 <a href="{{ url('/categories/'.$category->id) }}">{{ $category->name }}</a>
                             </h4>
                             <p class="description">{{ $category->description }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            <hr>
+
+            <h2 class="title">Nuestros productos por consola:</h2>
+
+            <div class="team">
+                <div class="row">
+                    @foreach ($consoles as $console)
+                    <div class="col-md-4">
+                        <div class="team-player">
+                            <img src="{{ $console->featured_image_url }}" alt="Imagen representativa de la categoría {{ $console->name }}" class="img-raised img-circle">
+                            <h4 class="title">
+                                <a href="{{ url('/consoles/'.$console->id) }}">{{ $console->name }}</a>
+                            </h4>
+                            <p class="description">{{ $console->description }}</p>
                         </div>
                     </div>
                     @endforeach

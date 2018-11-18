@@ -17,6 +17,7 @@
                     <div class="name">
                         <h3 class="title">{{ $product->name }}</h3>
                         <h6>{{ $product->category->name }}</h6>
+                        <h6>{{ $product->console->name }}</h6>
                     </div>
 
                     
@@ -30,18 +31,28 @@
                             {{ session('notification_error') }}
                         </div>
                     @endif
+
+                    @if (session('notification_stock'))
+                        <div class="alert alert-success">
+                            {{ session('notification_stock') }}
+                        </div>
+                    @endif
+
+
                 </div>
             </div>
             <div class="description text-center">
-                <p>$ {{ $product->price }}</p>
+                <strong><h3>Precio: $ {{ $product->price }}</h3></strong>
+                
                 <p>{{ $product->long_description }}</p>
             </div>
 
             <div class="text-center">
-                @if(auth()->user()->admin)
+               
+                
 
-                @else
-                @if (auth()->check())
+                @if (auth()->check() && auth()->user()->admin == false)
+
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                         <i class="material-icons">add</i> Añadir al carrito de compras
                     </button>
@@ -50,7 +61,10 @@
                         <i class="material-icons">add</i> Añadir al carrito de compras
                     </a>
                 @endif
-                @endif
+
+
+
+                
             </div> 
 
             <div class="row">

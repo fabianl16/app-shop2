@@ -12,17 +12,18 @@ Route::get('/products/{id}', 'ProductController@show');
 Route::get('/categories/{category}', 'CategoryController@show');
 
 
+Route::get('/consoles/{console}', 'ConsoleController@show');
 
 
-
-
+Route::get('/paysuccess', 'CartController@update')->name('paysuccess');
+Route::get('/paycancel', 'CartController@cancel')->name('paycancel');
+Route::post('/paypal', 'PaymentController@payWithpaypal');
 
 
 
 Route::middleware(['auth'])->group(function () {    //Rutas cliente
 Route::get('/mispedidos', 'ProductController@order');
 Route::post('/cart', 'CartDetailController@store');
-Route::post('/order', 'CartController@update');
 Route::delete('/cart', 'CartDetailController@destroy');    
 });
 
@@ -51,5 +52,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')
 	Route::post('/categories/{category}/edit', 'CategoryController@update'); // actualizar
 	Route::delete('/categories/{category}', 'CategoryController@destroy'); // form eliminar
     
+    Route::get('/consoles', 'ConsoleController@index'); // listado
+	Route::get('/consoles/create', 'ConsoleController@create'); // formulario
+	Route::post('/consoles', 'ConsoleController@store'); // registrar
+	Route::get('/consoles/{console}/edit', 'ConsoleController@edit'); // formulario edición
+	Route::post('/consoles/{console}/edit', 'ConsoleController@update'); // actualizar
+	Route::delete('/consoles/{console}', 'ConsoleController@destroy');
 	
 });

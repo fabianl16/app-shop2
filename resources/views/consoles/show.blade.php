@@ -39,11 +39,11 @@
             <div class="row">
                 <div class="profile">
                     <div class="avatar">
-                        <img src="{{ $category->featured_image_url }}" alt="Imagen representativa de la categoría {{ $category->name }}" class="img-circle img-responsive img-raised">
+                        <img src="{{ $console->featured_image_url }}" alt="Imagen representativa de la consola {{ $console->name }}" class="img-circle img-responsive img-raised">
                     </div>
 
                     <div class="name">
-                        <h3 class="title">{{ $category->name }}</h3>
+                        <h3 class="title">{{ $console->name }}</h3>
                     </div>
 
                     
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="description text-center">
-                <p>{{ $category->description }}</p>
+                <p>{{ $console->description }}</p>
             </div>
 
             <div class="team text-center">
@@ -67,8 +67,7 @@
                             <h4 class="title">
                                 <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                             </h4>
-                            <strong><h3 class="no-margin">Precio: $ {{ $product->price }}</h3></strong>
-                            
+                            <p class="no-margin">$ {{ $product->price }}</p>
                             <p class="description">{{ $product->description }}</p>
                         </div>
                     </div>
