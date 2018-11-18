@@ -23,12 +23,13 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->default(1);
 
             // FK
-            $table->integer('category_id')->unsigned()->nullable();
+            $table->unsignedInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
 
             // consola
             $table->unsignedInteger('console_id')->nullable();
             $table->foreign('console_id')->references('id')->on('consoles');
+
 
             $table->timestamps();
         });
