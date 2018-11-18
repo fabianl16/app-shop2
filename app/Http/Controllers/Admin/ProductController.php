@@ -62,7 +62,7 @@ class ProductController extends Controller
         }
         $product->console_id = $request->console_id == 0 ? null : $request->console_id;
 
-        if($product->console_id>= 1){
+        if($product->console_id == 0){
             $notification_error = 'Debes agregar el producto a una consola para poder crearlo';
         return back()->with(compact('notification_error'));
 
