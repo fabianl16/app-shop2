@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <textarea class="form-control" placeholder="Descripción de la categoría" rows="5" name="description">{{ old('description') }}</textarea>
+                <textarea class="form-control" placeholder="Descripción de la consola" rows="5" name="description">{{ old('description') }}</textarea>
 
                 <button class="btn btn-primary">Registrar consola</button>
                 <a href="{{ url('/admin/consoles') }}" class="btn btn-default">Cancelar</a>

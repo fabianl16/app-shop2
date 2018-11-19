@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
 use File;
+use Image;
 
 class ImageController extends Controller
 {
@@ -20,11 +21,32 @@ class ImageController extends Controller
 
     public function store(Request $request, $id)
     {
+
+         $messages = [
+            'photo.image' => 'Los archivos de subida de imagen deben ser de terminacion jpeg, png, bmp, gif, o svg'
+        ];
+        $rules = [
+            'photo' => 'image'
+        ];
+        $this->validate($request, $rules, $messages);
     	// guardar la img en nuestro proyecto
     	$file = $request->file('photo');
-    	$path = public_path() . '/images/products';
+        $img = Image::make($file);
+        $img->resize(600, 600);
+    	$path = public_path() . '/images/products/';
 	    $fileName = uniqid() . $file->getClientOriginalName();
-    	$moved = $file->move($path, $fileName);
+
+    	$moved = $img->save($path . $fileName);
+
+        //$file->move($path, $fileName);
+
+        // open an image file
+
+
+// now you are able to resize the instance
+
+
+// finally we save the image as a new file
     	
     	// crear 1 registro en la tabla product_images
     	if ($moved) {

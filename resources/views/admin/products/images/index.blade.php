@@ -13,6 +13,17 @@
         <div class="section text-center">
             <h2 class="title">Imágenes del producto "{{ $product->name }}"</h2>
 
+            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="file" name="photo" required>    
