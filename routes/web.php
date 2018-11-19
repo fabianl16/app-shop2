@@ -58,5 +58,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')
 	Route::get('/consoles/{console}/edit', 'ConsoleController@edit'); // formulario edición
 	Route::post('/consoles/{console}/edit', 'ConsoleController@update'); // actualizar
 	Route::delete('/consoles/{console}', 'ConsoleController@destroy');
+
+	 //Ventas
+    Route::get('/ventas', 'VentasController@index');
+    Route::get('/admin/ver-venta/{id}', 'VentasController@show');
 	
 });

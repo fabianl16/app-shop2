@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('long_description')->nullable();
             $table->float('price');
             $table->integer('stock')->default(1);
+            $table->unsignedInteger('sold')->default(0); 
 
             // FK
             $table->unsignedInteger('category_id')->nullable();

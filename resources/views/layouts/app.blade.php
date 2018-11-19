@@ -50,6 +50,9 @@
                                 
                                 @if (auth()->user()->admin)
                                 <li>
+                                    <a href="{{ url('/home') }}">Panel de administrador</a>
+                                </li>
+                                <li>
                                     <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
                                 </li>
                                 <li>
@@ -60,6 +63,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/admin/products/stock') }}">Inventario</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/admin/ventas')}}">Ventas</a>
                                 </li>
                                 @else
                                 <li>

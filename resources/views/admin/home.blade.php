@@ -46,63 +46,89 @@
   <h2 class="title text-center">Panel de administrador</h2>
 
     <div class="row">
-                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+      <a href="{{ url('/admin/products/stock') }}">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                            <div class="box-part text-center">
                                <i class="material-icons fa-3x">list</i>
                                <div class="title">
                                    <h4>Inventario</h4>
                                </div>
-                               <div class="text">
-                                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                               <div class="text" style="color:#000">
+                                   <span>Ten acceso a tus ventas y cantidad de cada producto disponibles para vender en la pagina  web.</span>
                                </div>
                             </div>
                        </div>
-                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                         </a>
+
+
+
+                       
+                       <a href="{{url('/admin/ventas')}}">   
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                           <div class="box-part text-center">
+                               <i class="material-icons fa-3x">add_alert</i>
+                               <div class="title">
+                                   <h4>Ventas</h4>
+                               </div>
+                               <div class="text" style="color:#000">
+                                   <span>Ten un registro de ventas que se asocian a cada cliente que hizo una compra</span>
+                               </div>
+                            </div>
+                       </div>  
+                        </a>
+
+                        <a href="{{ url('/admin/products') }}">
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                            <div class="box-part text-center">
                                 <i class="material-icons fa-3x">games</i>
                                <div class="title">
                                    <h4>Gestionar productos</h4>
                                </div>
-                               <div class="text">
-                                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                               <div class="text" style="color:#000">
+                                   <span>Accede a cada producto y editalo segun tu necesidad tambien podras cambiar la cantidad de productos disponibles para vender.</span>
                                </div>
                             </div>
-                       </div>
-                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            </div>
+
+
+                        </a>
+
+
+                           <a href="{{ url('/admin/categories') }}">
+                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                            <div class="box-part text-center">
                                <i class="material-icons fa-3x">scatter_plot</i>
                                <div class="title">
                                    <h4>Gestionar categorias</h4>
                                </div>
-                               <div class="text">
-                                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-                               </div>
-                            </div>
-                       </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                           <div class="box-part text-center">
-                               <i class="material-icons fa-3x">scatter_plot</i>
-                               <div class="title">
-                                   <h4>Gestionar categorias</h4>
-                               </div>
-                               <div class="text">
-                                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                               <div class="text" style="color:#000">
+                                   <span>En este apartado podras crear y editar categorias que se asocian a tus productos.</span>
                                </div>
                             </div>
                        </div>
 
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                           </a>
+
+                          <a href="{{ url('/admin/consoles') }}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                            <div class="box-part text-center">
-                               <i class="material-icons fa-3x">assignment_late</i>
+                               <i class="material-icons fa-3x">group_work</i>
                                <div class="title">
-                                   <h4>Pedidos por finalizar</h4>
+                                   <h4>Gestionar consolas</h4>
                                </div>
-                               <div class="text">
-                                   <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                               <div class="text" style="color:#000">
+                                   <span>Accede aqui para editar y crear nuevas consolas que se asociaran a tus productos.</span>
                                </div>
                             </div>
                        </div>
-  
+
+                          </a>
+                       
+                       
+                        
+
+                       
   
 </div>
 

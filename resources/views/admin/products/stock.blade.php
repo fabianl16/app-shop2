@@ -22,8 +22,11 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th class="col-md-2 text-center">Nombre</th>
-                            
-                                <th class="text-center">Cantidad</th>
+                                <th class="col-md-2 text-center">Consola</th>
+                                <th class="col-md-2 text-center">Cantidad disponible</th>
+                                <th class="col-md-2 text-center">Cantidad vendida</th>
+                                <th class="col-md-2 text-center">Precio Actual</th>
+                                <th class="col-md-2 text-right">Acciones</th>
                                 
                             </tr>
                         </thead>
@@ -32,7 +35,10 @@
                             <tr>
                                 <td class="text-center">{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td class="text-right"> {{ $product->stock }}</td>
+                                <td>{{ $product->console->name }}</td>
+                                <td class="text-center"> {{ $product->stock }}</td>
+                                <td class="text-center"> {{ $product->sold }}</td>
+                                <td class="text-center"> ${{ $product->price }}</td>
                                 <td class="td-actions text-right">
                                     
                         

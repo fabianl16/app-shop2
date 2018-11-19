@@ -27,6 +27,7 @@ if($request->paymentId && count(Cart::where('paymentId', $request->paymentId)->g
          foreach ($cart->details as $detail) {
             $product = $detail->product;
             $product->stock = $product->stock-$detail->quantity;
+            $product->sold = $product->sold + $detail->quantity;
             $product->save(); 
         }
 
