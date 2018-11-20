@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\cart;
+use App\Cart;
 class VentasController extends Controller
 {
     public function index()
