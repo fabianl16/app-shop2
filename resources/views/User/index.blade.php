@@ -11,7 +11,7 @@
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
-            <h2 class="title">Listado de pedidos</h2>
+            <h2 class="title">Listado de compras</h2>
 
             <div class="team">
                 <div class="row">
@@ -22,7 +22,7 @@
     <thead>
         <tr>
             <th>Pedido: {{$cart->id}}</th>
-            <th>Estado: {{$cart->status}}</th>
+            <th>Estado: Pagado</th>
             <th>Fecha de Pedido:{{$cart->order_date}}</th>
         </tr>
     </thead>
