@@ -33,8 +33,13 @@
                     @endif
 
                     @if (session('notification_stock'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             {{ session('notification_stock') }}
+                        </div>
+                    @endif
+                    @if (session('notification_quantity'))
+                        <div class="alert alert-danger">
+                            {{ session('notification_quantity') }}
                         </div>
                     @endif
 

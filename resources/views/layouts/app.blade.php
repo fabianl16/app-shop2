@@ -69,10 +69,14 @@
                                 </li>
                                 @else
                                 <li>
+                                    <a href="{{ url('/mi-perfil') }}">Mi perfil</a>
+                                </li>
+
+                                <li>
                                     <a href="{{ url('/home') }}">Carrito de compras</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/mispedidos') }}">Pedidos realizados</a>
+                                    <a href="{{ url('/mispedidos') }}">Compras realizados</a>
                                 </li>
                                 @endif
 

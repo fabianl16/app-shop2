@@ -24,7 +24,10 @@ Route::post('/paypal', 'PaymentController@payWithpaypal');
 Route::middleware(['auth'])->group(function () {    //Rutas cliente
 Route::get('/mispedidos', 'ProductController@order');
 Route::post('/cart', 'CartDetailController@store');
-Route::delete('/cart', 'CartDetailController@destroy');    
+Route::delete('/cart', 'CartDetailController@destroy');
+Route::get('/mi-perfil', 'PerfilController@me')->name('mi-perfil');
+Route::post('/update/mi-perfil', 'PerfilController@update');
+Route::get('/edit/mi-perfil', 'PerfilController@edit');    
 });
 
 

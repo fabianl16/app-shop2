@@ -32,6 +32,11 @@ class CartDetailController extends Controller
              $notification_stock = 'Stock insuficiente';
         return back()->with(compact('notification_stock'));
         }
+        if($cartDetail->quantity > 25){
+             $notification_quantity = 'Solo puedes comprar hasta 25 unidades de un mismo producto';
+        return back()->with(compact('notification_quantity'));
+        }
+
 
 
         $cartDetail->price = $request->price;
